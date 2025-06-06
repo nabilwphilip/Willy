@@ -1,0 +1,232 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 7%;  /* #121212 */
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 7%;  /* #121212 */
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 7%;  /* #121212 */
+
+    --primary: 45 75% 52%;      /* Gold/Amber #E6B325 */
+    --primary-foreground: 0 0% 100%; /* White */
+
+    --secondary: 0 0% 7%;       /* Rich Black #121212 */
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
+
+    --accent: 45 75% 52%;       /* Gold/Amber #E6B325 */
+    --accent-foreground: 0 0% 7%;  /* #121212 */
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 45 75% 52%;
+    --input: 0 0% 80%;
+    --ring: 45 75% 52%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 0 0% 7%;      /* Rich Black #121212 */
+    --foreground: 0 0% 100%;    /* White */
+
+    --card: 0 0% 9%;            /* Slightly lighter black */
+    --card-foreground: 0 0% 100%;
+
+    --popover: 0 0% 7%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 45 75% 52%;      /* Gold/Amber #E6B325 */
+    --primary-foreground: 0 0% 7%;  /* #121212 */
+
+    --secondary: 0 0% 100%;     /* White */
+    --secondary-foreground: 0 0% 7%;
+
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 70%;
+
+    --accent: 45 75% 52%;       /* Gold/Amber #E6B325 */
+    --accent-foreground: 0 0% 7%;  /* #121212 */
+
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 45 75% 42%;
+    --input: 0 0% 20%;
+    --ring: 45 75% 52%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  html {
+    @apply scroll-smooth;
+  }
+  
+  body {
+    @apply bg-background text-foreground font-opensans;
+  }
+  
+  .section-container {
+    @apply container mx-auto px-4 py-16 md:py-24;
+  }
+  
+  .section-heading {
+    @apply text-3xl md:text-4xl font-bold mb-8 md:mb-12 text-brand-gold dark:text-brand-gold font-playfair;
+  }
+  
+  .section-subheading {
+    @apply text-xl md:text-2xl font-medium mb-4 text-brand-gold dark:text-brand-gold font-playfair;
+  }
+  
+  .glass-effect {
+    @apply bg-brand-black/70 backdrop-blur-lg border border-brand-gold/20 dark:bg-brand-black/70;
+  }
+
+  .hero-gradient {
+    background: linear-gradient(
+      135deg,
+      rgba(230, 179, 37, 0.1),
+      rgba(18, 18, 18, 0.15)
+    );
+  }
+
+  .shadow-aura {
+    @apply relative;
+  }
+  
+  .shadow-aura::before {
+    @apply content-[''] absolute inset-0 -z-10 bg-brand-gold/20 blur-md rounded-lg;
+  }
+
+  .shadow-text {
+    text-shadow: 0 0 8px rgba(230, 179, 37, 0.6);
+  }
+}
+
+/* ... keep existing code (contact form styles) */
+
+/* Animation for contact form elements */
+/* ... keep existing code (animations) */
+
+/* Timeline styling */
+.timeline-container {
+  @apply relative pl-6 border-l border-brand-gold dark:border-brand-gold/50;
+}
+
+.timeline-dot {
+  @apply absolute -left-[5px] mt-1.5 h-2.5 w-2.5 rounded-full bg-brand-gold;
+}
+
+/* Shadow mist effect */
+.shadow-mist {
+  @apply relative overflow-hidden;
+}
+
+.shadow-mist::after {
+  content: '';
+  @apply absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-brand-black/80 to-transparent;
+}
+
+.shadow-mist-top::before {
+  content: '';
+  @apply absolute top-0 left-0 right-0 h-20 bg-gradient-to-b from-brand-black/80 to-transparent;
+}
+
+/* Glowing effect for icons */
+.glow-icon {
+  @apply relative;
+}
+
+.glow-icon svg {
+  @apply text-brand-gold drop-shadow-[0_0_6px_rgba(230,179,37,0.8)];
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-brand-gold/50 dark:bg-brand-gold/70 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-brand-gold dark:bg-brand-gold/90;
+}
+
+/* Toast styling */
+.sonner-toast {
+  @apply font-opensans;
+}
+
+/* Animations */
+/* ... keep existing code (animations) */
+
+/* Electric glow effects */
+.electric-border {
+  @apply relative;
+  box-shadow: 0 0 15px rgba(230, 179, 37, 0.5), 0 0 30px rgba(230, 179, 37, 0.3);
+}
+
+.electric-text {
+  @apply text-brand-gold;
+  text-shadow: 0 0 5px rgba(230, 179, 37, 0.7);
+}
+
+.pulse-glow {
+  animation: pulseGlow 2s infinite;
+}
+
+@keyframes pulseGlow {
+  0% {
+    box-shadow: 0 0 5px rgba(230, 179, 37, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(230, 179, 37, 0.8), 0 0 30px rgba(18, 18, 18, 0.6);
+  }
+  100% {
+    box-shadow: 0 0 5px rgba(230, 179, 37, 0.5);
+  }
+}
+
+/* Anime-style button hover effect */
+.anime-button {
+  @apply relative overflow-hidden bg-brand-gold text-white px-6 py-3 rounded-md transition-all duration-300;
+}
+
+.anime-button::before {
+  content: '';
+  @apply absolute inset-0 bg-brand-gold-dark opacity-0 transition-opacity duration-300;
+}
+
+.anime-button:hover::before {
+  @apply opacity-100;
+}
+
+.anime-button:hover {
+  @apply transform scale-105;
+  box-shadow: 0 0 15px rgba(230, 179, 37, 0.8);
+}
